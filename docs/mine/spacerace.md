@@ -1,6 +1,6 @@
 ---
 title: Space Race
-description: An overview of the 'Space Race', the Filecoin testnet incentive program.
+description: An overview of everything mining-related on the Filecoin network.
 ---
 
 # The Filecoin Space Race
