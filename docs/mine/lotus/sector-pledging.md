@@ -28,33 +28,32 @@ To pledge a sector use:
 lotus-miner sectors pledge
 ```
 
-::: warning
-This will write data to `$TMPDIR` so make sure that there is enough space available.
-:::
-
 Check that the sealing job has started with:
 
 ```sh
 lotus-miner sealing jobs
 ```
 
-This will be accommpanied by a file in `<PATH_FOR_SEALING_STORAGE>/unsealed`.
+Sealing a pledged sector is no different from any other sector. The miner (or the seal workers) will perform the different phases as configured.
 
-After some minutes, you can check the sealing progress with:
+You can get more information about the sector with:
 
 ```sh
+# List sectors
 lotus-miner sectors list
-# and
+# Show sector status
+lotus-miner sectors <sector_id>
+# See miner/workers utilization
 lotus-miner sealing workers
 ```
 
-When sealing for the new is complete, `pSet: NO` will become `pSet: YES`.
+When sealing for the new is complete, `active: NO` will become `active: YES` in the `sectors list` output.
 
 ## Adjusting the expected seal duration setting
 
 If you pledged a sector, you can use the duration of the operation to update the [`ExpectedSealDuration` setting](miner-configuration.md#dealmaking-section).
 
-To find out how long it took to seal the sector, run:
+To find out how long it took to seal the sector, see the event log by running:
 
 ```
 lotus-miner sectors status --log 0
